@@ -55,6 +55,7 @@ Post.init(
         key: 'id'
       }
     }
+
   },
   {
     sequelize,
@@ -65,3 +66,4 @@ Post.init(
 );
 
 module.exports = Post;
+
