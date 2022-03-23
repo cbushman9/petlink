@@ -2,42 +2,68 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // create our Post model
-class Post extends Model {}
+class Post extends Model {
+  static upvote(body, models) {
+    return models.Vote.create({
+      user_id: body.user_id,
+      post_id: body.post_id
+    }).then(() => {
+      return Post.findOne({
+        where: {
+          id: body.post_id
+        },
+        attributes: [
+          'id',
+          'content',
+          'title',
+          'created_at',
+          [
+            sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
+            'vote_count'
+          ]
+        ]
+      });
+    });
+  }
+}
 
 // create fields/columns for Post model
 Post.init(
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true
-      },
-      title: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      //changed Post_url to content
-      content: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        // validate: {
-        //   isURL: true
-        // }
-      },
-      user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id'
-        }
-      }
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
     },
-    {
-      sequelize,
-      freezeTableName: true,
-      underscored: true,
-      modelName: 'post'
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    //changed content to content
+    content: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      // validate: {
+      //   isURL: true
+      // }
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
     }
-  );
-//   module.exports = Post;
+
+  },
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'post'
+  }
+);
+
+module.exports = Post;
+
