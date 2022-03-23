@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { User, Post, Like } = require('../../models');
+const { User, Post, Vote } = require('../../models');
 
-// GET /api/users
+// get all users
 router.get('/', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] }
@@ -13,14 +13,12 @@ router.get('/', (req, res) => {
         });
 });
 
-// GET /api/users/1
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
         },
-        // replace the existing `include` with this
         include: [
             {
                 model: Post,
@@ -29,8 +27,8 @@ router.get('/:id', (req, res) => {
             {
                 model: Post,
                 attributes: ['title'],
-                through: Like,
-                as: 'liked_posts'
+                through: Vote,
+                as: 'voted_posts'
             }
         ]
     })
@@ -47,7 +45,6 @@ router.get('/:id', (req, res) => {
         });
 });
 
-// POST /api/users
 router.post('/', (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     User.create({
@@ -75,6 +72,7 @@ router.post('/login', (req, res) => {
         }
 
         const validPassword = dbUserData.checkPassword(req.body.password);
+
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect password!' });
             return;
@@ -84,8 +82,6 @@ router.post('/login', (req, res) => {
     });
 });
 
-
-// PUT /api/users/1
 router.put('/:id', (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
 
@@ -109,7 +105,6 @@ router.put('/:id', (req, res) => {
         });
 });
 
-// DELETE /api/users/1
 router.delete('/:id', (req, res) => {
     User.destroy({
         where: {

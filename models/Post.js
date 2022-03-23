@@ -3,8 +3,8 @@ const sequelize = require('../config/connection');
 
 // create our Post model
 class Post extends Model {
-  static liked(body, models) {
-    return models.Like.create({
+  static upvote(body, models) {
+    return models.Vote.create({
       user_id: body.user_id,
       post_id: body.post_id
     }).then(() => {
@@ -18,8 +18,8 @@ class Post extends Model {
           'title',
           'created_at',
           [
-            sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'),
-            'like_count'
+            sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
+            'vote_count'
           ]
         ]
       });
@@ -40,7 +40,7 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    //changed Post_url to content
+    //changed content to content
     content: {
       type: DataTypes.STRING,
       allowNull: false,

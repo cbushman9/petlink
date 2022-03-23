@@ -1,8 +1,7 @@
-const sequelize = require('../../config/connection');
 const router = require('express').Router();
-const { Post, User, Like } = require('../../models');
+const sequelize = require('../../config/connection');
+const { Post, User, Vote } = require('../../models');
 
-// get all users
 // get all users
 router.get('/', (req, res) => {
   console.log('======================');
@@ -12,7 +11,7 @@ router.get('/', (req, res) => {
       'content',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     order: [['created_at', 'DESC']],
     include: [
@@ -39,7 +38,7 @@ router.get('/:id', (req, res) => {
       'content',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
     ],
     include: [
       {
@@ -62,7 +61,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+  // expects {title: 'Taskmaster goes public!', content: 'https://taskmaster.com/press', user_id: 1}
   Post.create({
     title: req.body.title,
     content: req.body.content,
@@ -75,10 +74,9 @@ router.post('/', (req, res) => {
     });
 });
 
-// PUT /api/posts/liked
-router.put('/liked', (req, res) => {
+router.put('/upvote', (req, res) => {
   // custom static method created in models/Post.js
-  Post.liked(req.body, { Like })
+  Post.upvote(req.body, { Vote })
     .then(updatedPostData => res.json(updatedPostData))
     .catch(err => {
       console.log(err);
