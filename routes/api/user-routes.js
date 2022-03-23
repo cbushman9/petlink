@@ -1,9 +1,8 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post, Like } = require('../../models');
 
 // GET /api/users
 router.get('/', (req, res) => {
-    // Access our User model and run .findAll() method)
     User.findAll({
         attributes: { exclude: ['password'] }
     })
@@ -20,7 +19,20 @@ router.get('/:id', (req, res) => {
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
-        }
+        },
+        // replace the existing `include` with this
+        include: [
+            {
+                model: Post,
+                attributes: ['id', 'title', 'content', 'created_at']
+            },
+            {
+                model: Post,
+                attributes: ['title'],
+                through: Like,
+                as: 'liked_posts'
+            }
+        ]
     })
         .then(dbUserData => {
             if (!dbUserData) {
