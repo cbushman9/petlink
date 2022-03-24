@@ -7,22 +7,22 @@
     padding: 0;
     margin: 0;
     font-family: sans-serif;
-    color: #333;
+    color: rgb(132, 180, 187);
   }
   
   a {
     text-decoration: none;
-    color: #225ca3;
+    color: #757f8b;
     font-weight: bold;
     transition: color .1s;
   }
   
   a:hover {
-    color: #3486eb;
+    color: #8ba7c9;
   }
   
   button {
-    background-color: #225ca3;
+    background-color: #1371e4;
     border: 0;
     padding: 1%;
     color: white;
@@ -49,7 +49,7 @@
   
   textarea:focus, input:focus {
     outline: none;
-    border: 1px solid #3486eb;
+    border: 1px solid #0c0c0c;
   }
   
   textarea {
@@ -114,7 +114,7 @@
   }
   
   .delete-post-btn:hover {
-    background-color: #ff643d;
+    background-color: #a76555;
   }
   
   .post {
