@@ -55,7 +55,6 @@ Post.init(
         key: 'id'
       }
     }
-<<<<<<< HEAD
   },
   {
     sequelize,
@@ -67,8 +66,3 @@ Post.init(
 
 module.exports = Post;
 
-=======
-  );
-
-  module.exports = Post;
->>>>>>> feature/views
