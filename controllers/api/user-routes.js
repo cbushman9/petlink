@@ -71,6 +71,7 @@ router.post('/', (req, res) => {
           res.json(dbUserData);
         });
      })
+
 // Login Route Update -D
 router.post('/login', (req, res) => {
     // expects {email: 'lernantino@gmail.com', password: 'password1234'}
