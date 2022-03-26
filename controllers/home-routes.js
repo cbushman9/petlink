@@ -29,9 +29,12 @@ router.get('/', (req, res) => {
   })
     .then(dbPostData => {
       // pass a single post object into the homepage template
-      console.log(dbPostData[4]);
       const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('homepage', { posts });
+      console.log(dbPostData[0]);
+      res.render('homepage', {
+        posts,
+        loggedIn: req.session.loggedIn
+      });
     })
     .catch(err => {
       console.log(err);
@@ -44,6 +47,7 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
+
   res.render('login');
 });
 
@@ -54,6 +58,7 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
+      'content',
       'title',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
@@ -83,7 +88,10 @@ router.get('/post/:id', (req, res) => {
       const post = dbPostData.get({ plain: true });
 
       // pass data to template
-      res.render('single-post', { post });
+      res.render('single-post', {
+        post,
+        loggedIn: req.session.loggedIn
+      });
     })
     .catch(err => {
       console.log(err);

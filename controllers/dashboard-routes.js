@@ -3,12 +3,10 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
-  console.log('======================');
   Post.findAll({
     where: {
+      // use the ID from the session
       user_id: req.session.user_id
     },
     attributes: [
@@ -34,6 +32,7 @@ router.get('/', withAuth, (req, res) => {
     ]
   })
     .then(dbPostData => {
+      // serialize data before passing to template
       const posts = dbPostData.map(post => post.get({ plain: true }));
       res.render('dashboard', { posts, loggedIn: true });
     })

@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{!-- // <style>p.groove</style> --}}
-  <title>PetLink</title>
+  <title>Just Tech News</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
@@ -15,7 +14,7 @@
       <h1>
         <a href="/">PetLink</a>
       </h1>
-     <nav>
+      <nav>
         {{#if loggedIn}}
         <a href="/dashboard">dashboard</a>
         <button id="logout" class="btn-no-style">logout</button>
@@ -31,9 +30,9 @@
       Thanks for visiting!
     </footer>
   </div>
- {{#if loggedIn}}
-  <script src="/javascript/logout.js"></script>
-  {{/if}}
+{{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
 </body>
 
 </html>
