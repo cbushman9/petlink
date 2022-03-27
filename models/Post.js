@@ -15,6 +15,7 @@ class Post extends Model {
         attributes: [
           'id',
           'content',
+          'image_url',
           'title',
           'created_at',
           [
@@ -40,12 +41,16 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    //changed content to content
+    //changed post_url to content
     content: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: true,
       // validate: {
-      //   isURL: true
+      //     isURL: true
       // }
     },
     user_id: {
@@ -65,3 +70,4 @@ Post.init(
 );
 
 module.exports = Post;
+
