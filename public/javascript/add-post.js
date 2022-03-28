@@ -26,10 +26,9 @@ async function newFormHandler(event) {
 }
 
 // cloudinary code start
-
 var CLOUDINARY_URL = 'http://api.cloudinary.com/v1_1/dqlwnmemx/upload';
 var CLOUDINARY_UPLOAD_PRESET = 'mm1nbxqo';
-
+//utilizing html
 var imageUrl = document.getElementById('image-url');
 var fileUpload = document.getElementById('file-upload');
 
@@ -41,7 +40,7 @@ fileUpload.addEventListener('change', function () {
   formData.append('file', file);
   formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
-
+  // sending data to cloudinary
   axios({
     url: CLOUDINARY_URL,
     method: 'POST',
@@ -51,6 +50,7 @@ fileUpload.addEventListener('change', function () {
     data: formData
   }).then(function (res) {
     console.log(res);
+    // allows image to show up in app
     imageUrl.src = res.data.secure_url;
   }).catch(function (err) {
     console.error(err);
