@@ -29,6 +29,7 @@
     "express-session": "^1.17.2",
     "font-awesome": "^4.7.0",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.17.0"
+    "sequelize": "^6.17.0",
+    "serve-favicon": "^2.5.0"
   }
 }
