@@ -1,15 +1,20 @@
 const path = require('path');
 const express = require('express');
+const favicon = require('serve-favicon');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers/');
 
 
-const app = express();
+const app = express()
+app.use(favicon(path.join(__dirname, './public/images/favicon.ico')))
+
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+
 
 const sess = {
   secret: 'Super secret secret',
