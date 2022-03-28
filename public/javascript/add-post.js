@@ -26,9 +26,10 @@ async function newFormHandler(event) {
 }
 
 // cloudinary code start
-var CLOUDINARY_URL = 'http://api.cloudinary.com/v1_1/dqlwnmemx/upload';
-var CLOUDINARY_UPLOAD_PRESET = 'mm1nbxqo';
-//utilizing html
+
+var CLOUDINARY_URL = 'http://api.cloudinary.com/v1_1/hkawyxjzq/upload';
+var CLOUDINARY_UPLOAD_PRESET = 'mfsfx0l0';
+
 var imageUrl = document.getElementById('image-url');
 var fileUpload = document.getElementById('file-upload');
 
