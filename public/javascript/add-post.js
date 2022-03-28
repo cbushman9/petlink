@@ -27,7 +27,7 @@ async function newFormHandler(event) {
 
 // cloudinary code start
 
-var CLOUDINARY_URL = 'http://api.cloudinary.com/v1_1/hkawyxjzq/upload';
+var CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/hkawyxjzq/upload';
 var CLOUDINARY_UPLOAD_PRESET = 'mfsfx0l0';
 
 var imageUrl = document.getElementById('image-url');
