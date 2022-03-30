@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
         });
 });
 
+//git only one user per id
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
@@ -24,7 +25,7 @@ router.get('/:id', (req, res) => {
                 model: Post,
                 attributes: ['id', 'title', 'content', 'image_url', 'created_at']
             },
-            // include the Comment model here:
+            // Comment model
             {
                 model: Comment,
                 attributes: ['id', 'comment_text', 'created_at'],
@@ -55,7 +56,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {username, email, password}
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -117,7 +118,7 @@ router.post('/logout', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {username, email, password}
 
     // pass in req.body instead to only update what's passed through
     User.update(req.body, {
