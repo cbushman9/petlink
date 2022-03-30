@@ -4,26 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pet Link</title>
+  <title>PetLink
+    </title>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/homestyle.css">
   <link rel="icon" href="favicon.ico?v=2.5">
+
 </head>
 
 <body>
   <div class="wrapper">
     <header>
       <h1>
-        <a href="/">PetLink</a>
+        <a href="/"><img src="/images/Petlink_GR.png"></img></a>
       </h1>
       <nav>
         {{#if loggedIn}}
         <a href="/dashboard"><i class='fas fa-plus-square' style='font-size:30px'></i></a>
-        <button id="logout" class="btn-no-style">logout</button>
+        <button id="logout" class="btn-no-style">Logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login" style="color:rgb(175, 226, 230);">LOGIN</a>
         {{/if}}
       </nav>
     </header>

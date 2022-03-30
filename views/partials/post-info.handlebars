@@ -1,12 +1,16 @@
 <article class="post">
+  <div class="card" style="width: 50rem;">
+  <div class="card-body">
   <div class="title">
-    <a href="{{content}}" target="_blank">{{title}}</a>
-    <span>({{format_url content}})</span>
-    <img src="{{image_url}}" />
+    <a href="/post/{{id}}" target="_blank">{{title}}</a>
+    <span class="content">{{content}}</span>
+    <img src="{{image_url}}" class="card-img-top" alt="...">
   </div>
-  <div class="meta">
-    {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
+    <div class="meta">
+    {{vote_count}} {{format_plural "Paw-Point" vote_count}} by {{user.username}} on {{format_date created_at}}
     |
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+  </div>
+  </div> 
   </div>
 </article>

@@ -41,7 +41,7 @@ fileUpload.addEventListener('change', function () {
   formData.append('file', file);
   formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
-
+  // sending data to cloudinary
   axios({
     url: CLOUDINARY_URL,
     method: 'POST',
@@ -51,6 +51,7 @@ fileUpload.addEventListener('change', function () {
     data: formData
   }).then(function (res) {
     console.log(res);
+    // allows image to show up in app
     imageUrl.src = res.data.secure_url;
   }).catch(function (err) {
     console.error(err);
