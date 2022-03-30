@@ -1,9 +1,10 @@
-<section>
-  <h2>Create New Post <i class='fas fa-feather' style='font-size:40px'></i></h2>
+<section style:"border-">
+  <div class="newpost" id="newpost">
+  <h2 style="text-align:center; padding:1%;">Create New Post <i class='fas fa-feather' style='font-size:40px'></i></h2>
 
   <form class="new-post-form">
     <div>
-      <label for="post-title"><i class='fas fa-paw' style='font-size:30px'></i> Title</label>
+      <label for="post-title"><i class='fas fa-pen' style='font-size:30px'></i> Title</label>
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
@@ -25,9 +26,10 @@
 
     <button type="submit" class="btn">Create</button>
   </form>
+  </div>
 </section>
 
-{{#if posts.length}}
+{{!-- {{#if posts.length}}
 <section>
   <h2>Your Posts</h2>
   <ol>
@@ -38,6 +40,22 @@
     </li>
     {{/each}}
   </ol>
+</section>
+{{/if}} --}}
+
+{{#if posts.length}}
+<section>
+  <div class="postcard" id="postcard">
+  <h2>Your Posts:</h2>
+  <ul>
+    {{#each posts as |post|}}
+    <li>
+      {{> postcard post}}
+      {{!-- <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a> --}}
+    </li>
+    {{/each}}
+  </ul>
+  </div>
 </section>
 {{/if}}
 
