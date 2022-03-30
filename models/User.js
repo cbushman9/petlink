@@ -13,6 +13,7 @@ class User extends Model {
 // define table columns and configuration
 User.init(
     {
+        // TABLE COLUMN DEFINITIONS
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -40,6 +41,7 @@ User.init(
         }
     },
     {
+        // TABLE CONFIGURATION OPTIONS. Hash passwords
         hooks: {
             // set up beforeCreate lifecycle "hook" functionality
             async beforeCreate(newUserData) {

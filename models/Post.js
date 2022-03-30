@@ -41,7 +41,6 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    //changed post_url to content
     content: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -49,9 +48,6 @@ Post.init(
     image_url: {
       type: DataTypes.STRING,
       allowNull: true,
-      // validate: {
-      //     isURL: true
-      // }
     },
     user_id: {
       type: DataTypes.INTEGER,
