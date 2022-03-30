@@ -1,7 +1,11 @@
+{{!-- this is a partial template that can be included in other handlebars templates; this one in particular allows other templates to include comments without having to put this chunk of code into every page we want to display comments --}}
+
 <div class="comments">
+  {{!-- #each allows us to iterate over a list, and using 'this' allows us to reference the element we are iterating over, which in our case is comments --}}
   {{#each this}}
   <section class="comment">
     <div class="meta">
+      {{!-- the double curly braces surround handlebars expressions, in this case the output will be the user's username and the date the comment was made; format_date is a helper included in utils/helper.js that formats the date --}}
       {{user.username}} on {{format_date created_at}}
     </div>
     <div class="text">
