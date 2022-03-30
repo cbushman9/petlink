@@ -140,9 +140,12 @@ form label {
   header {
     display:inline-flex;
     justify-content: space-between;
+     position: fixed;
+    width:100%;
     align-items: center;
     padding: 0 1%;
     background-color:#543512;
+    z-index: 9999;
   }
   
   /* header h1 {
@@ -157,7 +160,8 @@ form label {
   #list li{
     list-style-type: none;
   }
- 
+
+
   /* Styling of Post card Created for every new post */
   .postcard {
 
