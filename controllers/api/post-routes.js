@@ -37,6 +37,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// get one user by id
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -79,7 +80,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-
+// create post
   Post.create({
     title: req.body.title,
     content: req.body.content,

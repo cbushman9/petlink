@@ -1,4 +1,4 @@
-<section style:"border-">
+<section>
   <div class="newpost" id="newpost">
   <h2 style="text-align:center; padding:1%;">Create New Post <i class='fas fa-feather' style='font-size:40px'></i></h2>
 
@@ -47,7 +47,7 @@
 <section>
   <div class="postcard" id="postcard">
   <h2>Your Posts:</h2>
-  <ul>
+  <ul id="list">
     {{#each posts as |post|}}
     <li>
       {{> postcard post}}
