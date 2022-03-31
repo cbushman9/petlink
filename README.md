@@ -39,7 +39,7 @@ CSS
     "serve-favicon": "^2.5.0"
 
 ## Screen Shots
-
+C:\Users\Owner\OneDrive\Pictures\Screenshots
 ## Links
 Deployed Application:
 https://gentle-tundra-78964.herokuapp.com/ 
