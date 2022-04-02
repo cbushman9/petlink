@@ -1,7 +1,10 @@
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
 
+
 * {
     box-sizing: border-box;
+    margin:0;
+    padding:0;
   }
   
   /* Basic Styling of Body and HTML */
@@ -37,6 +40,7 @@
      padding-bottom: 60px;
      min-height: calc(100vh - 200px);
      background-size: cover;
+     margin-top: 56px;
 
    }
 
@@ -51,6 +55,7 @@
       justify-items: center;
       padding: 1% 3% 1% 2%;
       font-weight: bolder;
+      
                  
    }
 
@@ -75,6 +80,7 @@
     
     padding: 1% 3% 3% 3%;
     font-weight: bolder;
+    
     
  }
 
@@ -175,20 +181,22 @@ form label {
   .postcard {
 
     text-align: center; 
-    display:inline-block;
+    
     position:absolute;
-    left:20%;
+    /* left:20%; */
   
     
     padding-bottom: 20px;
     border-style: solid Black;
     position: relative;
+    width: 50rem;
+    margin: auto;
     
   }
 
   /* Styling of New Post Created */
   .newpost {
-    margin-top: 5%; 
+    
     margin-left:10%;
     margin-right:10%;
     margin-bottom: 2%;
@@ -197,6 +205,9 @@ form label {
     border-style:double;
     border-color: #d41414;
     text-align: center;
+    margin: auto;
+    margin-top: 70px; 
+    width:50rem;
 
   }
  
@@ -213,6 +224,11 @@ form label {
       line-height:40px;
      
   }
+
+    .edit_dash {
+      margin-top: 70px;
+    }
+  
 
    /* Styling of Comment-Form  */
   .comment-form {
@@ -236,11 +252,11 @@ form label {
   
   
   
-  /* main {
-    flex: 1;
-    padding: 2% 4%;
+  main {
+    flex-grow: 1;
+   
   }
-   */
+  
   
    /* Styling of Button with class name btn */
    .btn {
@@ -347,23 +363,25 @@ form label {
   
   }
   .new-post-form input {
-    width: 300px;
+    width: 85%;
   }
   
     /* Styling of class of card */ 
   .card {
     /* margin: 0 auto;
     max-width : 1000px; */
+    margin: auto;
     margin-top: 1%;
     padding-top: 2%;
-    display:inline-block;
+    /* display:inline-block; */
     position:relative;
-    left:30%;
-    right:30%;
+    /* left:30%;
+    right:30%; */
     padding-bottom: 20px;
     border-style: solid Black;
-    position:relative 
+    position:relative ;
     /* align-items: center; */
+    width:50rem;
    
   }
 
@@ -385,15 +403,35 @@ form label {
     margin: top -60px;
     clear:both ;
   }
+    
 
-  /* On screens that are 992px or less, set the background color to blue */
-@media screen and (max-width: 992px) {
- 
-  
-}
 
 /* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 600px) {
   
-  
-}
+  @media screen and (max-width: 600px) {
+    .card{  
+    
+    padding:0px 0px 0px 0px;
+    margin:auto;
+    }
+    #list li {
+     list-style-type: none;
+   }
+   .card {
+     left:none;
+     right:none;
+     width:auto;
+   }
+
+   .newpost {
+     width:75%;
+   }
+
+   .postcard {
+     width: auto;
+   }
+
+  .login-box, .signup-box {
+    margin: auto;
+  }
+  }
