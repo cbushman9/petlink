@@ -1,3 +1,4 @@
+// logic for login and signup forms 
 async function signupFormHandler(event) {
   event.preventDefault();
 
@@ -24,6 +25,7 @@ async function signupFormHandler(event) {
     }
   }
 }
+// event listener to process signup form submission 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
 
 async function loginFormHandler(event) {
@@ -41,7 +43,7 @@ async function loginFormHandler(event) {
       }),
       headers: { 'Content-Type': 'application/json' }
     });
-
+// take users to the dashboard when they login 
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
@@ -49,5 +51,5 @@ async function loginFormHandler(event) {
     }
   }
 }
-
+// event listener to handle login form submission 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
