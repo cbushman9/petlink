@@ -1,5 +1,7 @@
 
+
 <article class="edit_dash">
+
   <div class="edit-form">
   
   <a href="/dashboard"> &larr; Back to Dashboard</a>
@@ -27,6 +29,7 @@
   </div>
 </article>
 
+{{!-- we decided we didn't want the comment form on the edit post page so we commented it out rather than deleted it in case we decide we would like to include the comment form on this page --}}
 {{!-- <form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
@@ -37,10 +40,11 @@
   </div>
 </form> --}}
 
-
+{{!-- the following handlebars expression calls the comments partial to list the comments made on this post --}}
 {{> comments post.comments}}
 
+{{!-- the following script tags link to the js files that include the functions necessary to edit and delete posts as well as the comment form handler which we ended up not needing since we commented out the comment form --}}
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
+{{!-- <script src="/javascript/comment.js"></script> --}}
 

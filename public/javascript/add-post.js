@@ -1,10 +1,12 @@
+// this file includes the function for the form that allows users to add posts that include a title, content, and an image
+// async function allows us to use fetch 
 async function newFormHandler(event) {
   event.preventDefault();
-
+// declare constants for title, content, and images_url
   const title = document.querySelector('input[name="post-title"]').value;
   const content = document.querySelector('input[name="content"]').value;
   const image_url = document.querySelector('img[name="image-url"]').getAttribute("src");
-
+// use await syntax so that the function is paused until the request to api/posts is made 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
     body: JSON.stringify({
@@ -59,5 +61,5 @@ fileUpload.addEventListener('change', function () {
 
 });
 // cloudinary code end
-
+// add event listener to capture new post form submission
 document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);

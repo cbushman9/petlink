@@ -1,3 +1,4 @@
+// function to allow upvotes or "paw-points"
 async function upvoteClickHandler(event) {
   event.preventDefault();
 
@@ -14,12 +15,12 @@ async function upvoteClickHandler(event) {
       'Content-Type': 'application/json'
     }
   });
-  
+  // reloads the page to show post with new upvote/paw-point 
   if (response.ok) {
     document.location.reload();
   } else {
     alert(response.statusText);
   }
 }
-
+// event listener to handle the upvote/paw-point button 
 document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);
