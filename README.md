@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-# PetLink
-## Description
-- **PetLink** is an web app to share your super photogenic pet from their point of view.
-- 
-=======
 ## PetLink
-
 ## Description
 **PetLink** is a web app that allows you to sign in as your pet and share pictures and topics, meet-ups and market place style selling of pet supplies or shelter pet posts looking for their forever home.
 ## Process - Technologies Used
@@ -39,11 +32,11 @@ CSS
     "serve-favicon": "^2.5.0"
 
 ## Screen Shots
-C:\Users\Owner\OneDrive\Pictures\Screenshots
+
 ## Links
 Deployed Application:
 https://gentle-tundra-78964.herokuapp.com/ 
 
 GitHub Repository: 
 https://github.com/cbushman9/petlink 
->>>>>>> 31dfb107fd81abe36536202cdd38446f13710115
+31dfb107fd81abe36536202cdd38446f13710115
