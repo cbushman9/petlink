@@ -32,7 +32,7 @@ CSS
     "serve-favicon": "^2.5.0"
 
   ## Usage
-
+reddit style social media for your pets to share glamor shots, activities, meetups and marketplace.
 
 ## Screen Shots
 
