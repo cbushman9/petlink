@@ -1,5 +1,6 @@
+{{!-- this handlebars template uses the comments and post-info partials that we created to make the code shorter and cleaner --}}
 {{> post-info post }}
-
+{{!-- the comments form, which includes the ability to leave comments and add "Paw-Points", only shows up for users that are logged in, otherwise users just see comments that others have made --}}
 {{#if loggedIn}}
 <form class="comment-form">
   <div>
@@ -16,6 +17,7 @@
 
 {{> comments post.comments }}
 
+{{!-- if users are logged in, they can leave comments and "Paw-points" which requires the use of javascript functions declared in the comment.js and upvote.js files, and here is where we link to those files --}}
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/upvote.js"></script>

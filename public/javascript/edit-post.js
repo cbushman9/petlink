@@ -1,3 +1,4 @@
+// create function to allow users to edit posts
 async function editFormHandler(event) {
   event.preventDefault();
 
@@ -16,12 +17,12 @@ async function editFormHandler(event) {
       'Content-Type': 'application/json'
     }
   });
-
+// go to dashboard after post is edited 
   if (response.ok) {
     document.location.replace('/dashboard/');
   } else {
     alert(response.statusText);
   }
 }
-
+// event listener to process edit post form when submit button is clicked 
 document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);

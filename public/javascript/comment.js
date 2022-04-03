@@ -1,3 +1,4 @@
+// create a comment form for users to add comments to existing posts 
 async function commentFormHandler(event) {
   event.preventDefault();
 
@@ -6,7 +7,7 @@ async function commentFormHandler(event) {
   const post_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-
+// if logic to prevent blank comments 
   if (comment_text) {
     const response = await fetch('/api/comments', {
       method: 'POST',
@@ -18,7 +19,6 @@ async function commentFormHandler(event) {
         'Content-Type': 'application/json'
       }
     });
-  
     if (response.ok) {
       document.location.reload();
     } else {
@@ -26,5 +26,5 @@ async function commentFormHandler(event) {
     }
   }
 }
-
+// add event listener to capture comment form submission 
 document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
