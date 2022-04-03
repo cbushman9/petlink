@@ -1,0 +1,21 @@
+.login {
+    background-image: url("../images/Petlink.webp");
+    /* width:100vh;
+    height:100vh; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position:right; */
+}
+.login-form {
+
+    padding: 1.6%;
+
+
+}
+
+.signup-form {
+
+    padding: 1.6%;
+
+}
+

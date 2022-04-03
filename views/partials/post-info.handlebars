@@ -1,0 +1,19 @@
+{{!-- this partial handlebars template allows us to use this code that formats the posts in other handlebars templates --}}
+<article class="post">
+  <div class="card" >
+  <div class="card-body">
+  <div class="title">
+    <a href="/post/{{id}}" target="_blank">{{title}}</a>
+    <span class="content">{{content}}</span>
+    <img src="{{image_url}}" class="card-img-top" alt="...">
+  </div>
+    <div class="meta">
+    {{vote_count}} {{format_plural "Paw-Point" vote_count}} by {{user.username}} on {{format_date created_at}}
+    {{!-- the previous line uses handlebars expressions to show how many paw-points each post has received as well as who created the post and when the it was created--}}
+    |
+    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    {{!-- the href attribute in the anchor tag links to the single post page for the post where users can see the comments and interact with the post if they're logged in --}}
+  </div>
+  </div> 
+  </div>
+</article>

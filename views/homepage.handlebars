@@ -1,0 +1,8 @@
+{{!-- this template calls the post-info partial to list the posts on the home page --}}
+<ul class="post-list" id="list">
+  {{#each posts as |post|}}
+  <li>
+   {{> post-info post }}
+  </li>
+  {{/each}}
+</ul>

@@ -1,0 +1,50 @@
+
+
+<article class="edit_dash">
+
+  <div class="edit-form">
+  
+  <a href="/dashboard"> &larr; Back to Dashboard</a>
+  <h2>
+    Edit Post
+  </h2>
+  <form class="edit-post-form">
+    <div>
+      <label for="post-title"><i class='fas fa-pen' style='font-size:30px'></i> Title </label> 
+      <input name="post-title" type="text" value="{{post.title}}" />
+    </div>
+    <div>
+      <label for="content"><i class='fas fa-cat' style='font-size:30px'></i> Cat-tion</label>
+      <input name="post-content" value="{{post.content}}" class="content"/>
+      <img({{post.image_url}}) />
+    </div>
+    <div>
+      {{post.vote_count}} {{format_plural "Paw-Point" post.vote_count}} by you on {{format_date post.created_at}}
+      |
+      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+    </div>
+    <button type="submit">Save post</button>
+    <button type="button" class="delete-post-btn">Delete post</button>
+  </form>
+  </div>
+</article>
+
+{{!-- we decided we didn't want the comment form on the edit post page so we commented it out rather than deleted it in case we decide we would like to include the comment form on this page --}}
+{{!-- <form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add comment</button>
+  </div>
+</form> --}}
+
+{{!-- the following handlebars expression calls the comments partial to list the comments made on this post --}}
+{{> comments post.comments}}
+
+{{!-- the following script tags link to the js files that include the functions necessary to edit and delete posts as well as the comment form handler which we ended up not needing since we commented out the comment form --}}
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+{{!-- <script src="/javascript/comment.js"></script> --}}
+

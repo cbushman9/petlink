@@ -1,0 +1,53 @@
+{{!-- this file creates the main handlebars template to generate the default html for the application --}}
+<!DOCTYPE html>
+<html lang="en">
+
+{{!-- the head tag works like the header on an html page with the links to stylesheets; the stylesheets linked here are
+applied to all of the handlebars files --}}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetLink
+  </title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/homestyle.css">
+  <link rel="icon" href="favicon.ico?v=2.5">
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>
+        <a href="/"><img src="/images/petlink1.png"></img></a>
+      </h1>
+      {{!-- logic to change the nav bar depending on whether a user is logged in or not --}}
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard"><i class='fas fa-plus-square' style='font-size:30px'></i></a>
+        <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+        <a href="/login" >LOGIN</a>
+        {{/if}}
+      </nav>
+    </header>
+     {{!-- body is a reserved word for handlebars that allows us to use other handlebars templates, and we use the triple curly braces around the body so that the html stays the same without escaping special characters --}}
+    <main>
+      {{{ body }}}
+    </main>
+    <footer>
+      Thanks for visiting!
+    </footer>
+  </div>
+   {{!-- if users are logged in, they will see an option to logout in the nav bar above, and the code below links this file to the javasrcipt file with the logout function to actually log users out --}}
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

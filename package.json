@@ -4,10 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js",
-    "watch": "nodemon server.js",
-    "seed": "node seeds/index.js",
     "dev": "nodemon server.js"
   },
   "repository": {
@@ -18,12 +16,21 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.7"
-  }
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "bcrypt": "^5.0.1",
+    "connect-session-sequelize": "^7.1.2",
+    "dotenv": "^8.6.0",
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.3",
+    "express-session": "^1.17.2",
+    "font-awesome": "^4.7.0",
+    "fontawesome": "^5.6.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0",
+    "serve-favicon": "^2.5.0"
+ }
 }
